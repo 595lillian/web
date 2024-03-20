@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="shortcut icon" href="static/favicon.ico" /> -->
-
+    <link rel="javascript" href="./es-demo/src/js/index.js">
     <title>hhh</title>
 </head>
 
@@ -15,6 +15,46 @@
 
 </body>
 <script>
+    //set 数据结构 成员的值都是唯一的 本质是构造函数
+    let lillian = new Set();
+    console.log(lillian.size);
+    //向set中添加值 用add方法 返回set本身
+    lillian.add('a').add("b").add("a")
+    console.log(lillian.size);
+    //去掉重复，size为2 如果添加的类型是obj 即使值一样 也是不同的地址值
+    let li = new Set();
+    li.add({
+        a: 2
+    }).add({
+        a: 2
+    })
+    console.log(li);
+    //此时li中有两个元素，若想只有一个则可以先键值对赋值的方式 表示为同一个对象
+    let li2 = new Set();
+    let obj = {
+        a: 2
+    }
+    li2.add(obj).add(obj)
+    console.log(li2); //只有一个值了
+    //删除用delete 返回布尔值 表示是否删除成功
+    let r1 = lillian.delete("a");
+    console.log(lillian.size) //size为1
+    console.log(r1); //结果为true 删除成功 如果删除的值不在set内则删除失败返回false
+    //has 查询set是否存在某个值 返回布尔值
+    let r2 = lillian.has("b");
+    console.log(r2); //结果为true则为存在
+    let r3 = lillian.has("a") //查询刚刚已经删除的值
+    console.log(r3); //false a已经删除了 不存在
+    //清空set结构中的值 用clear方法
+    lillian.clear();
+    console.log(lillian.size); //0 全部清空了
+    li.clear();
+    console.log(li.size); //0
+
+    //遍历set 拿到其中的一个值
+
+
+
     //合并去重
     let arr1 = [1, 2, 3, 4, 5, 7, 8, 12, 14]
     let arr2 = [2, 3, 4, 5, 6, 9, 16]
@@ -23,9 +63,10 @@
     console.log([...s1]);
     console.log(Array.from(s1));
     //数组去重
-    let arr = [1, 2, 1, 2, 3, 4, 4, 5, 6, 5, 7, 6, 8, 9, 7]
-    let s2 = new Set(arr)
-    console.log(s2)
+    // let arr = [1, 2, 1, 2, 3, 4, 4, 5, 6, 5, 7, 6, 8, 9, 7]
+    let s2 = new Set([1, 2, 1, 2, 3, 4, 4, 5, 6, 5, 7, 6, 8, 9, 7])
+    let array = [...s2]
+    console.log(array)
         //123456789
 
     //两个数组的交集 2，3，4，5
