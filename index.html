@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="shortcut icon" href="static/favicon.ico" /> -->
+
+    <title>hhh</title>
+</head>
+
+<body>
+    <h1>hhhhhhhhhh</h1>
+
+</body>
+<script>
+    //合并去重
+    let arr1 = [1, 2, 3, 4, 5, 7, 8, 12, 14]
+    let arr2 = [2, 3, 4, 5, 6, 9, 16]
+    let s1 = new Set([...arr1, ...arr2])
+    console.log(s1);
+    console.log([...s1]);
+    console.log(Array.from(s1));
+    //数组去重
+    let arr = [1, 2, 1, 2, 3, 4, 4, 5, 6, 5, 7, 6, 8, 9, 7]
+    let s2 = new Set(arr)
+    console.log(s2)
+        //123456789
+
+    //两个数组的交集 2，3，4，5
+    let s3 = new Set(arr1)
+    let s4 = new Set(arr2)
+    let result = new Set(arr1.filter(item => s4.has(item)))
+    console.log(Array.from(result))
+        //差集
+    let arr3 = new Set(arr1.filter(item => !s4.has(item)))
+    let arr4 = new Set(arr2.filter(item => !s3.has(item)))
+    console.log(arr3) //1,7,8,12,14
+    console.log(arr4) //6,9,16
+    console.log([...arr3, ...arr4]) //数组合并
+</script>
+
+</html>
